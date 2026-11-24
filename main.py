@@ -11,9 +11,9 @@ survey collapses into the plainest defeat in the kitchen.
 
 Judged against the house brief, in its order: one funny line within the
 limit; a real surprise at the end that still makes sense once it arrives
-("ingredients" re-frames the whole scene); an everyday truth people nod at;
-economical — no word explains the joke; and a fresh angle, not the stock
-fridge-raiding line.
+("ingredients" re-frames the whole royal scene into a kitchen defeat); an
+everyday truth people nod at; economical — no word explains the joke; and
+a fresh angle, not the stock fridge-raiding line.
 
 Selected by a manual ranking against the brief over ten candidates, with a
 pairwise self-check against the standing entry and the Laugh Sprint
@@ -35,6 +35,7 @@ def main() -> None:
     # Gate checks, mirrored locally: 1-200 chars, single sentence, UTF-8.
     assert 1 <= len(text) <= 200, f"line is {len(text)} chars, must be 1-200"
     assert text.count(".") == 1 and text.endswith("."), "entry must be one sentence"
+    assert "\n" not in text and "\r" not in text, "entry must be a single line"
     text.encode("utf-8")
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8", newline="") as f:
